@@ -1,6 +1,7 @@
 package com.example.nobsv2.exception;
 
 import com.example.nobsv2.product.model.ErrorResponse;
+import jakarta.validation.ConstraintViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -22,5 +23,19 @@ public ErrorResponse handleProductNotFoundException(ProductNotFoundException exc
     return new ErrorResponse(exception.getMessage());
 }
 
-//Can add more exception handlers
+@ExceptionHandler(ProductNotValidException.class)
+@ResponseStatus(HttpStatus.BAD_REQUEST)
+@ResponseBody
+public ErrorResponse handleProductNotValidException(ProductNotValidException exception){
+    return new ErrorResponse(exception.getMessage());
+}
+
+@ExceptionHandler(ConstraintViolationException.class)
+@ResponseStatus(HttpStatus.BAD_REQUEST)
+@ResponseBody
+public ErrorResponse handleProductNotValidConstraints(ConstraintViolationException exception){
+    // just return the first error
+    //my work does it like this
+    return new ErrorResponse(exception.getConstraintViolations().iterator().next().getMessage());
+}
 }
