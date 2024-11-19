@@ -21,7 +21,7 @@ public class GetProductService implements Query<Integer, ProductDTO> {
 
     @Override
     public ResponseEntity<ProductDTO> execute(Integer input) {
-        Optional< Product> productOptional = this.productReposistory.findById(String.valueOf(input));
+        Optional< Product> productOptional = this.productReposistory.findById(input);
         if (productOptional.isPresent()) {
             return ResponseEntity.ok(new ProductDTO(productOptional.get()));
         }

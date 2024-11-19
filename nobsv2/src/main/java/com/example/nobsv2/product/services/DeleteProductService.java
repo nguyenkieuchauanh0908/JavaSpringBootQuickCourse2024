@@ -22,9 +22,9 @@ public class DeleteProductService implements Command<Integer, Void> {
 
     @Override
     public ResponseEntity<Void> execute(Integer id) {
-        Optional<Product> productOptional = productReposistory.findById(String.valueOf(id));
+        Optional<Product> productOptional = productReposistory.findById(id);
         if(productOptional.isPresent()){
-            productReposistory.deleteById(String.valueOf(id));
+            productReposistory.deleteById(id);
             return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
         }
 

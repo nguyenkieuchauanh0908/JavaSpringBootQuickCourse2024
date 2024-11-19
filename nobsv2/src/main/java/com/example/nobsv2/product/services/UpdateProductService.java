@@ -22,7 +22,7 @@ public class UpdateProductService implements Command<UpdateProductCommand, Produ
 
     @Override
     public ResponseEntity<ProductDTO> execute(UpdateProductCommand command) {
-        Optional<Product> productOptional = productReposistory.findById(String.valueOf(command.getId()));
+        Optional<Product> productOptional = productReposistory.findById(command.getId());
         if (productOptional.isPresent()){
             Product product = command.getProduct();
             product.setId(command.getId());
