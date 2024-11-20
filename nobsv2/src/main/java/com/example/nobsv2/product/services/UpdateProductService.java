@@ -6,6 +6,7 @@ import com.example.nobsv2.product.ProductReposistory;
 import com.example.nobsv2.product.model.Product;
 import com.example.nobsv2.product.model.ProductDTO;
 import com.example.nobsv2.product.model.UpdateProductCommand;
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +22,10 @@ public class UpdateProductService implements Command<UpdateProductCommand, Produ
     }
 
     @Override
+    //    @Cacheable("productCache")
+    // Evict => throws it away
+    //Put => throws it away and puts the return value of the method in the cache
+    @CachePut(value = "productCache", key="#command.getId()")
     public ResponseEntity<ProductDTO> execute(UpdateProductCommand command) {
         Optional<Product> productOptional = productReposistory.findById(command.getId());
         if (productOptional.isPresent()){
