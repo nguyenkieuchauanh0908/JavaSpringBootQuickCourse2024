@@ -1,0 +1,27 @@
+2024-11-20T21:11:55.176+07:00  INFO 7428 --- [nobsv2] [main] com.example.nobsv2.Nobsv2Application     : Starting Nobsv2Application using Java 19.0.2 with PID 7428 (E:\ChauAnh\Courses\backend\JavaSpringBootQuickCourse2024\nobsv2\target\classes started by Dell in E:\ChauAnh\Courses\backend\JavaSpringBootQuickCourse2024\nobsv2)
+2024-11-20T21:11:55.180+07:00  INFO 7428 --- [nobsv2] [main] com.example.nobsv2.Nobsv2Application     : No active profile set, falling back to 1 default profile: "default"
+2024-11-20T21:11:56.370+07:00  INFO 7428 --- [nobsv2] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-20T21:11:56.467+07:00  INFO 7428 --- [nobsv2] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 82 ms. Found 2 JPA repository interfaces.
+2024-11-20T21:11:57.721+07:00  INFO 7428 --- [nobsv2] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-11-20T21:11:57.748+07:00  INFO 7428 --- [nobsv2] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-20T21:11:57.748+07:00  INFO 7428 --- [nobsv2] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-11-20T21:11:57.862+07:00  INFO 7428 --- [nobsv2] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-20T21:11:57.864+07:00  INFO 7428 --- [nobsv2] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2603 ms
+2024-11-20T21:11:58.104+07:00  INFO 7428 --- [nobsv2] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-11-20T21:11:58.588+07:00  INFO 7428 --- [nobsv2] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5b8572df
+2024-11-20T21:11:58.592+07:00  INFO 7428 --- [nobsv2] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-11-20T21:11:58.648+07:00  INFO 7428 --- [nobsv2] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-20T21:11:58.744+07:00  INFO 7428 --- [nobsv2] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-11-20T21:11:58.793+07:00  INFO 7428 --- [nobsv2] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-20T21:11:59.377+07:00  INFO 7428 --- [nobsv2] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-20T21:12:01.019+07:00  INFO 7428 --- [nobsv2] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-20T21:12:01.027+07:00  INFO 7428 --- [nobsv2] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-20T21:12:01.508+07:00  INFO 7428 --- [nobsv2] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-11-20T21:12:02.388+07:00  WARN 7428 --- [nobsv2] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-20T21:12:02.930+07:00  INFO 7428 --- [nobsv2] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-11-20T21:12:02.944+07:00  INFO 7428 --- [nobsv2] [main] com.example.nobsv2.Nobsv2Application     : Started Nobsv2Application in 8.495 seconds (process running for 9.095)
+2024-11-20T21:12:04.533+07:00  INFO 7428 --- [nobsv2] [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-20T21:12:04.534+07:00  INFO 7428 --- [nobsv2] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-20T21:12:04.536+07:00  INFO 7428 --- [nobsv2] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-11-20T21:12:04.620+07:00  INFO 7428 --- [nobsv2] [http-nio-8080-exec-2] c.e.n.p.services.GetProductService       : Executing class com.example.nobsv2.product.services.GetProductService input: 20
+2024-11-20T21:12:04.753+07:00 ERROR 7428 --- [nobsv2] [http-nio-8080-exec-2] c.e.n.p.services.GetProductService       : Exception class com.example.nobsv2.exception.ProductNotFoundException thrown
