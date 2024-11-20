@@ -3,6 +3,8 @@ package com.example.nobsv2.mappings;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.List;
+
 @Entity
 @Table(name="customer")
 @Data
@@ -21,7 +23,7 @@ public class Customer {
     //FetchType.EAGER: When getting a customer, it will automatically get the Address
     //FetchType.LAZY: When getting a customer, it won't automatically get the Address
     //CascadeType.ALL: If you update the customer, it will automatically update the address
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="address_id")
-    private Address address;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name="customer_id")
+    private List<Address> addresses;
 }
