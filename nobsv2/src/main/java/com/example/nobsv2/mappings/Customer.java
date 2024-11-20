@@ -23,7 +23,11 @@ public class Customer {
     //FetchType.EAGER: When getting a customer, it will automatically get the Address
     //FetchType.LAZY: When getting a customer, it won't automatically get the Address
     //CascadeType.ALL: If you update the customer, it will automatically update the address
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name="customer_id")
+    @ManyToMany
+    @JoinTable(
+            name="customer_address",
+            joinColumns = @JoinColumn(name="customer_id"),
+            inverseJoinColumns = @JoinColumn(name="address_id")
+    )
     private List<Address> addresses;
 }

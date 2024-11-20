@@ -1,7 +1,10 @@
 package com.example.nobsv2.mappings;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.List;
 
 @Entity
 @Table(name="address")
@@ -22,7 +25,11 @@ public class Address {
     @Column(name = "state")
     private String state;
 
-    @Column(name="customer_id")
-    private Integer customerId;
+//    @Column(name="customer_id")
+//    private Integer customerId;
+
+    @ManyToMany(mappedBy = "addresses")
+    @JsonIgnore
+    private List<Customer> customers;
 
 }
