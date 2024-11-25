@@ -1,5 +1,6 @@
 package com.example.nobsv2.security;
 
+import com.example.nobsv2.security.jwt.JwtAuthenticationFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -57,18 +58,22 @@ public class SecurityConfiguration {
                 //allow for POST, PUT, DELETE mapping with authentication
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authorize -> {
-                    //must allow the user create new without any credentials
-                    System.out.println("Filter chain...");
+                    //must allow the user create new/login without any credentials
+                    authorize.requestMatchers("/login").permitAll();
                     authorize.requestMatchers("/createnewuser").permitAll();
 
                     //must be at the bottom
                     authorize.anyRequest().authenticated();
                 })
                 .addFilterBefore(
-                        new BasicAuthenticationFilter(authenticationManager(httpSecurity)),
-                        UsernamePasswordAuthenticationFilter.class
+                        jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class
                 )
                 .build();
+    }
+
+    @Bean
+    public JwtAuthenticationFilter jwtAuthenticationFilter(){
+        return new JwtAuthenticationFilter();
     }
 
 }

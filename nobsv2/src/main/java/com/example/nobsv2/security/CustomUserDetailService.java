@@ -21,7 +21,6 @@ public class CustomUserDetailService implements UserDetailsService {
         //this is where you can add roles and authorities to the users
 
         //relational mapping to get roles and authoritise
-        System.out.println("Find user...");
         return User
                 .withUsername(customUser.getUsername())
                 .password(customUser.getPassword())
