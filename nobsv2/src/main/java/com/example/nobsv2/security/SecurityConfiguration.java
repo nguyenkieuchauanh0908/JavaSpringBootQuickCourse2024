@@ -58,12 +58,13 @@ public class SecurityConfiguration {
                 //allow for POST, PUT, DELETE mapping with authentication
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authorize -> {
+                    authorize.anyRequest().permitAll();
                     //must allow the user create new/login without any credentials
-                    authorize.requestMatchers("/login").permitAll();
-                    authorize.requestMatchers("/createnewuser").permitAll();
-
-                    //must be at the bottom
-                    authorize.anyRequest().authenticated();
+//                    authorize.requestMatchers("/login").permitAll();
+//                    authorize.requestMatchers("/createnewuser").permitAll();
+//
+//                    //must be at the bottom
+//                    authorize.anyRequest().authenticated();
                 })
                 .addFilterBefore(
                         jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class
